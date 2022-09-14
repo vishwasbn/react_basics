@@ -4,7 +4,15 @@ import Profile from "./Component/Profile";
 
 function App() {
 
-  const [state, setState] = useState()
+  const [state, setState] = useState('about')
+  let component = '';
+
+  if (state === 'about') {
+    component = <About />
+  }
+  if (state === 'profile') {
+    component = <Profile />
+  }
 
   return (
     <div>
@@ -14,7 +22,7 @@ function App() {
       <button onClick={() => {
         setState('profile')
       }}>Profile</button>
-      {state === 'about' ? <About /> : <Profile />}
+      {component}
     </div>
 
   );
