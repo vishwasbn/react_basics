@@ -1,28 +1,26 @@
-import { useState } from "react";
+
 import About from "./Component/About";
 import Profile from "./Component/Profile";
-
+import { BrowserRouter as Router, Route, Routes , Link} from 'react-router-dom'
 function App() {
 
-  const [state, setState] = useState('about')
-  let component = '';
 
-  if (state === 'about') {
-    component = <About />
-  }
-  if (state === 'profile') {
-    component = <Profile />
-  }
 
   return (
     <div>
-      <button onClick={() => {
-        setState('about')
-      }}>About</button>
-      <button onClick={() => {
-        setState('profile')
-      }}>Profile</button>
-      {component}
+
+      {/* <Link to='/about'>About Page</Link>
+      <Link to='/profile'>Profile Page</Link> */}
+
+      <a href="/about">about page</a>
+      <a href="/profile">profile page</a>
+
+      <Router>
+        <Routes>
+          <Route element={<About />} path="/about">      </Route>
+          <Route element={<Profile />} path="/profile">      </Route>
+        </Routes>
+      </Router>
     </div>
 
   );
