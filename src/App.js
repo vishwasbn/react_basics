@@ -3,6 +3,7 @@ import About from "./Component/About";
 import Profile from "./Component/Profile";
 import { Route, Routes, Link, useNavigate } from 'react-router-dom'
 import { useState } from "react";
+import {AppContext} from './Context'
 function App() {
 
 
@@ -23,11 +24,13 @@ function App() {
 
       <Link to='/about'>About Page</Link>
       <Link to='/profile'>Profile Page</Link>
+      <AppContext.Provider value={{count}}>
       <Routes>
         <Route element={<About></About>} path="/about">      </Route>
-        <Route element={<Profile data={count}></Profile>} path="/profile">      </Route>
+        <Route element={<Profile ></Profile>} path="/profile">      </Route>
         <Route element={<h1>Hello</h1>} path="/">      </Route>
       </Routes>
+      </AppContext.Provider>
 
     </div>
 
