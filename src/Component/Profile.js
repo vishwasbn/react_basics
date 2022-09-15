@@ -1,8 +1,12 @@
 import React from 'react'
+import One from './One'
 
-function Profile() {
+function Profile(props) {
   return (
-    <h1>Profile</h1>
+    <div style={{backgroundColor:'orange',width:'100%'}}>
+      <h1>Profile</h1>
+      <One data={props.data}></One>
+    </div>
   )
 }
 
